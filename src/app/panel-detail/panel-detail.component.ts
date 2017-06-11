@@ -1,6 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {MainService} from '../services/main.service';
-import {FirebaseObjectObservable} from 'angularfire2/database';
 
 @Component({
   selector: 'app-panel-detail',
@@ -9,24 +7,8 @@ import {FirebaseObjectObservable} from 'angularfire2/database';
 })
 export class PanelDetailComponent implements OnInit {
 
-  detailPanelState: any;
+  constructor() {
 
-  selectedRiskAlert: FirebaseObjectObservable<any>;
-  selectedOngoing: FirebaseObjectObservable<any>;
-
-  constructor(private _ms: MainService) {
-
-    this._ms.selectedRiskAlert.subscribe(selectedRiskAlert => {
-      this.selectedRiskAlert = selectedRiskAlert;
-    });
-
-    this._ms.selectedOngoing.subscribe(selectedOngoing => {
-      this.selectedOngoing = selectedOngoing;
-    });
-
-    this._ms.detailPanelState.subscribe(detailPanelState => {
-      this.detailPanelState = detailPanelState;
-    });
   }
 
   ngOnInit() {
