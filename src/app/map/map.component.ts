@@ -69,20 +69,6 @@ export class MapComponent implements OnInit {
     this._mS.selectSection(sID);
   }
 
-  onRoadIncidentSelect(riID) {
-    this._mS.selectRoadIncident(riID);
-  }
-
-  onCrashSelect(cID) {
-    this._mS.selectCrash(cID);
-
-  }
-
-  onEventSelect(eID) {
-    this._mS.selectEvent(eID);
-
-  }
-
   onSectionRightClick(sID, $event) {
     console.log(sID);
     console.log($event.latLng.lat());
