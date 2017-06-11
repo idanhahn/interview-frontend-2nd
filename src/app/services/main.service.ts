@@ -4,14 +4,11 @@ import {MapControl} from '../classes/map-control';
 import {PanelControl} from '../classes/panel-control';
 import {Location} from '../classes/location';
 import {RoadIncidentService} from './road-incident.service';
-import {CrashService} from './crash.service';
-import {EventService} from './event.service';
 import {SectionService} from './section.service';
 import {RiskAlertsService} from './risk-alerts.service';
 import {OngoingService} from './ongoing.service';
 import {FirebaseObjectObservable} from 'angularfire2/database';
 import {MapService} from './map.service';
-import {PlanService} from './plan.service';
 
 @Injectable()
 export class MainService {
@@ -33,11 +30,8 @@ export class MainService {
 
   constructor(private _sS: SectionService,
               private _riS: RoadIncidentService,
-              private _cS: CrashService,
-              private _eS: EventService,
               private _raS: RiskAlertsService,
               private _ogS: OngoingService,
-              private _pS: PlanService,
               private _mS: MapService) {
 
   }
@@ -63,36 +57,12 @@ export class MainService {
     return this._riS.getAll();
   }
 
-  getRoadIncidentsBySectionID(id) {
-    return this._riS.getAllBySectionID(id);
-  }
-
-  // crashes:
-  getCrashes() {
-    return this._cS.getAll();
-  }
-
-  // events:
-  getEvents() {
-    return this._eS.getAll();
-  }
-
-
   getRiskAlerts() {
     return this._raS.getAll();
   }
 
   getOngoings() {
     return this._ogS.getAll();
-  }
-
-  getPlanShifts() {
-    return this._pS.getAllShifts();
-  }
-
-
-  getSection(sectionID) {
-    return this._sS.getSection(sectionID);
   }
 
   // Uses Cases:
@@ -128,30 +98,6 @@ export class MainService {
 
   }
 
-  // selectCrash
-  selectCrash(cID) {
-
-    console.log('crash selected: ' + cID);
-    this.mapControl.next({
-      type: 'crash',
-      crash: this._cS.get(cID)
-    });
-    this._cS.select(cID);
-
-  }
-
-  // selectEvent
-  selectEvent(eID) {
-
-    console.log('event selected: ' + eID);
-    this.mapControl.next({
-      type: 'event',
-      event: this._eS.get(eID)
-    });
-    this._eS.select(eID);
-
-  }
-
   selectCreateNew(location: Location) {
     console.log('create new selected' + location);
     this.mapControl.next({
@@ -159,36 +105,6 @@ export class MainService {
       location: location
     });
   }
-
-
-  // Panel related:
-  // ##############
-
-  // ------------------------------------- //
-  // -- Move Prediction Slider on Panel -- //
-  // ------------------------------------- //
-
-  movePredictionSlider(hour) {
-
-    console.log('prediction hour changed: ' + hour);
-    this.panelControl.next({
-      hour: hour
-    });
-
-  }
-
-  // --------------------------------- //
-  // -- Toggle panel next/previous  -- //
-  // --------------------------------- //
-
-  selectNextSection() {
-    console.log('selectNextSection');
-  }
-
-  selectPreviousSection() {
-    console.log('selectePreviousSection');
-  }
-
 
   // ------------------------ //
   // -- Select Risk Alerts -- //

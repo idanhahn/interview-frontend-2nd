@@ -14,8 +14,6 @@ import {PanelComponent} from './panel/panel.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MainService} from './services/main.service';
 import {RoadIncidentService} from './services/road-incident.service';
-import {CrashService} from './services/crash.service';
-import {EventService} from './services/event.service';
 import {SectionService} from './services/section.service';
 import {AngularFireModule} from 'angularfire2';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
@@ -32,7 +30,6 @@ import {OngoingService} from './services/ongoing.service';
 import {MapService} from './services/map.service';
 import 'hammerjs';
 import {MdSliderModule} from '@angular/material';
-import {PlanService} from './services/plan.service';
 import { SafePipe } from './pipes/safe.pipe';
 
 @NgModule({
@@ -70,12 +67,9 @@ import { SafePipe } from './pipes/safe.pipe';
     MainService,
     SectionService,
     RoadIncidentService,
-    CrashService,
-    EventService,
     RiskAlertsService,
     OngoingService,
     CfgService,
-    PlanService,
     MapService
   ],
   bootstrap: [AppComponent]
