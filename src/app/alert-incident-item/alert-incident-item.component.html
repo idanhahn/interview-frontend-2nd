@@ -1,0 +1,25 @@
+<div class="alert-container">
+  <div class="alert-icon">
+    <img class="alert-icon-img" src="./assets/images/{{incidentRiskAlert.icon}}.png">
+    <div class="layer text-style-1" [ngStyle]="{'color': incidentRiskAlert.numberColor}">{{incidentRiskAlert.number}}</div>
+  </div>
+  <div class="alert-body">
+    <div class="alert-body-row-1">
+      <span class="body-title">{{incidentRiskAlert.title}}</span>
+      <span class="body-subtitle">{{incidentRiskAlert.subtitle}}</span>
+    </div>
+    <div class="alert-body-row-2">
+      <span class="alert-danger label label-danger">{{incidentRiskAlert.riskLevel}}</span>
+      <span id="circle" [ngStyle]="{'background-color': 'black'}">
+        <img class="img-overlay" src="./assets/images/{{incidentRiskAlert.alertIcon}}-white.png">
+      </span>
+      <span class="alert-body-row-2-content">
+        {{incidentRiskAlert.alertContent}}
+      </span>
+    </div>
+  </div>
+  <div *ngIf="alertSelected == true" class="alert-sidebar">
+    <div class="icon-arrow-right Arrow-right--simple-line-icons"></div>
+  </div>
+</div>
+<hr>

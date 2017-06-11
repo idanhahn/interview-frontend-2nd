@@ -1,0 +1,13 @@
+<div class="map-container" [@toggleMap]="state">
+
+  <ng-container [ngSwitch]="mapType">
+    <app-map *ngSwitchCase="'danger'"></app-map>
+  </ng-container>
+
+</div>
+
+<div class="panel-container" [@togglePanel]="state">
+
+  <app-panel></app-panel>
+
+</div>

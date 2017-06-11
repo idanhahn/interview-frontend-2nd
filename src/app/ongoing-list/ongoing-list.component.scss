@@ -1,0 +1,29 @@
+.ongoing-item:hover{
+  background-color: #f7f7f7;
+}
+.ongoing-item:hover::after{
+  background-color: #f7f7f7;
+}
+.ongoing-item:hover::before{
+  background-color: #f7f7f7;
+}
+
+.ongoing-incidents-container{
+  width:280px;
+  margin: 10px;
+}
+
+.incidents-list-container{
+}
+
+incident-list{
+}
+
+.incidents-title{
+  font-family: Roboto;
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 0.86;
+  letter-spacing: -1.1px;
+  color: #2a2c2e;
+}

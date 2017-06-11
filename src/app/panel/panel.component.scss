@@ -1,0 +1,14 @@
+.panel-container{
+  height: 100vh;
+  display:flex;
+  flex-direction: row;
+  box-shadow: -3px 0px 10px 1px #aaaaaa
+
+}
+.panel-left-side{
+  width: 300px;
+  border-right: 1px solid lightgrey;
+}
+.panel-right-side{
+  width: 300px;
+}

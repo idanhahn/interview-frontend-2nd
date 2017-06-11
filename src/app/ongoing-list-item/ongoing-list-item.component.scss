@@ -1,0 +1,132 @@
+@import '../../styles.scss';
+
+$panel-width: 300px;
+$ongoing-height: 120px;
+
+$margin-left: 10px;
+$margin-top: 30px;
+$margin-bottom: 30px;
+
+$icon-width: 80px;
+$sidebar-width: 30px;
+$body-width: $panel-width - $icon-width - $margin-left - $sidebar-width;
+
+$body-row-1-height: ($ongoing-height - $margin-top - $margin-bottom)/2;
+$body-row-2-height: ($ongoing-height - $margin-top - $margin-bottom)/2;
+
+$divider-height: 30px;
+
+
+.ongoing-container{
+  display: flex;
+  flex-direction: row;
+  height: $ongoing-height - $margin-top - $margin-bottom;
+  margin-top: $margin-top;
+  margin-bottom: $margin-bottom;
+  cursor: pointer;
+}
+.ongoing-icon{
+  min-width: $icon-width;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ongoing-icon-img{
+  width: 55px;
+  height: 53px;
+  object-fit: contain;
+}
+
+.ongoing-body{
+  min-width: $body-width;
+  flex-direction: column;
+}
+
+.ongoing-body-row-1{
+  min-height: $body-row-1-height;
+  display: flex;
+  flex-direction: row;
+}
+.ongoing-body-row-2{
+  min-height: $body-row-2-height;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.plan-warning{
+  margin-right: 4px;
+}
+
+.ongoing-sidebar{
+  min-width: $sidebar-width;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.body-title{
+  font-family: Roboto;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: left;
+  color: #2a2c2e;
+  margin-right: 5px;
+}
+
+.body-subtitle{
+  font-family: Roboto;
+  font-weight: 300;
+  font-size: 18px;
+  text-align: left;
+  color: #2a2c2e;
+}
+
+.ongoing-danger{
+  margin-right: 15px;
+}
+
+.ongoing-divider{
+
+}
+
+#circle {
+  width: 20px;
+  height: 20px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  background: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-overlay {
+  width:80%;
+}
+
+.layer {
+  position: absolute;
+  width: 45.2px;
+  height: 30px;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.layer .text-style-1 {
+  letter-spacing: normal;
+}
+
+.Arrow-right---simple-line-icons {
+  width: 20px;
+  height: 20px;
+  font-family: simple-line-icons;
+  font-size: 20px;
+  color: #000000;
+}

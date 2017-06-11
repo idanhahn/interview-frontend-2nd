@@ -1,0 +1,86 @@
+$bgDefault   : #191970;
+$bgHighlight : #191970;
+$colDefault  : #d3d3d3;
+$colHighlight: #ffffff;
+.navbar-default {
+  background-color: $bgDefault;
+  border-color: $bgHighlight;
+  .navbar-brand {
+    color: $colDefault;
+    &:hover, &:focus {
+      color: $colHighlight; }}
+  .navbar-text {
+    color: $colDefault; }
+  .navbar-nav {
+    > li {
+      > a {
+        color: $colDefault;
+        &:hover,  &:focus {
+          color: $colHighlight;
+        }}}
+    > .active {
+      > a, > a:hover, > a:focus {
+        color: $colHighlight;
+        background-color: $bgHighlight;
+      }}
+    > .open {
+      > a, > a:hover, > a:focus {
+        color: $colHighlight;
+        background-color: $bgHighlight; }}}
+  .navbar-toggle {
+    border-color: $bgHighlight;
+    &:hover, &:focus {
+      background-color: $bgHighlight; }
+    .icon-bar {
+      background-color: $colDefault; }}
+  .navbar-collapse,
+  .navbar-form {
+    border-color: $colDefault; }
+  .navbar-link {
+    color: $colDefault;
+    &:hover {
+      color: $colHighlight; }}}
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu {
+    > li > a {
+      color: $colDefault;
+      &:hover, &:focus {
+        color: $colHighlight; }}
+    > .active {
+      > a, > a:hover, > a:focus{
+        color: $colHighlight;
+        background-color: $bgHighlight; }}}
+}
+
+
+.header-container{
+  min-height: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.logo{
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  padding-right: 4px;
+  border-right: 1px solid black;
+  max-width:100%;
+  max-height:100%;
+  min-width: 50px;
+}
+
+.logo-img{
+  max-height: 30px;
+}
+
+.tab{
+  display: flex;
+  justify-content: center;
+  min-width: 100px;
+}
+.setting{
+  display: flex;
+  justify-content: space-between;
+  min-width: 50px;
+}

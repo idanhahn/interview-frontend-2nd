@@ -1,0 +1,26 @@
+<div class="ongoing-sections-container">
+
+  <div class="ongoing-item" *ngFor="let ongoing of ongoings | async">
+    <div *ngIf="ongoing.type === 'section'">
+      <app-ongoing-list-item
+        [sectionOngoing]="ongoing"
+        [ongoingSelected]="ongoingSelect(ongoing.$key)"
+        (click)="onOngoingSelect(ongoing.$key, ongoing.lat, ongoing.lng, ongoing.zoom)"></app-ongoing-list-item>
+    </div>
+  </div>
+
+</div>
+
+<div class="ongoing-incidents-container">
+  <div class="incidents-title">
+    Incidents
+  </div>
+  <div class="incidents-list-container">
+
+    <div class="incidents-list">
+      <!-- Incidents go here -->
+    </div>
+
+  </div>
+</div>
+

@@ -1,0 +1,9 @@
+.alert-item:hover{
+  background-color: #f7f7f7;
+}
+.alert-item:hover::after{
+  background-color: #f7f7f7;
+}
+.alert-item:hover::before{
+  background-color: #f7f7f7;
+}

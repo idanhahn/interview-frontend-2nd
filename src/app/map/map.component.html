@@ -1,0 +1,73 @@
+<sebm-google-map
+  class="map"
+  [latitude]="mapControl.center.lat" [longitude]="mapControl.center.lng"
+  [zoom]="mapControl.zoom"
+  [mapDraggable]="true"
+>
+
+  <!-- Sections -->
+  <ng-container *ngFor="let section of sections | async">
+    <ng-container *ngIf="section.crashPrediction[hour].result > 0.4">
+      <!-- Start Point -->
+      <sebm-google-map-circle
+        [fillColor]="'black'"
+        [fillOpacity]="'1.0'"
+        [latitude]="section.sectionGeometric.startPoint.lat"
+        [longitude]="section.sectionGeometric.startPoint.lng"
+        [radius]="10"
+        [zIndex]="1"
+      ></sebm-google-map-circle>
+
+      <sebm-google-map-polyline
+        [strokeWeight]="5"
+        [strokeColor]="section.crashPrediction[hour].color"
+        (lineClick)="onSectionSelect(section.$key, $event)"
+        (lineRightClick)="onSectionRightClick(section.$key, $event)"
+        [zIndex]="1">
+        <sebm-google-map-polyline-point *ngFor="let point of section.sectionGeometric.path"
+                                        [latitude]="point.lat"
+                                        [longitude]="point.lng"></sebm-google-map-polyline-point>
+
+      </sebm-google-map-polyline>
+    </ng-container>
+  </ng-container>
+  <!-- /sections -->
+
+  <!-- Incident Risk Alerts -->
+  <ng-container *ngFor="let riskAlert of riskAlerts | async">
+    <ng-container *ngIf="riskAlert.type === 'incident'">
+
+      <sebm-google-map-marker [latitude]="riskAlert.lat"
+                              [longitude]="riskAlert.lng"
+                              [zIndex]="1"
+                              [iconUrl]="'./assets/images/pin-warning.png'"
+                              (markerClick)="onRiskAlertClick(riskAlert.$key)"
+      >
+      </sebm-google-map-marker>
+
+    </ng-container>
+  </ng-container>
+
+  <!-- Road Incidents -->
+  <ng-container *ngFor="let roadIncident of roadIncidents | async">
+
+    <!-- location pins -->
+    <sebm-google-map-marker [latitude]="roadIncident.location.latLng.lat"
+                            [longitude]="roadIncident.location.latLng.lng"
+                            [zIndex]="1"
+                            [iconUrl]="'./assets/images/location-pin-' + roadIncident.color + '.png'"
+                            (markerClick)="onIncidentClick(roadIncident.$key)"
+    >
+    </sebm-google-map-marker>
+
+    <!-- incident type -->
+    <sebm-google-map-marker [latitude]="roadIncident.location.latLng.lat"
+                            [longitude]="roadIncident.location.latLng.lng"
+                            [zIndex]="1"
+                            [iconUrl]="'./assets/images/' + roadIncident.icon + '-xs.png'"
+                            (markerClick)="onIncidentClick(roadIncident.$key)"
+    >
+    </sebm-google-map-marker>
+  </ng-container>
+  <!-- /Road Incidents -->
+</sebm-google-map>

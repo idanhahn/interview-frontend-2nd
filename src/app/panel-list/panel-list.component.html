@@ -1,0 +1,15 @@
+<div class="list-heading-container">
+  <div class="tab-risk-alerts" [ngStyle]="riskAlertsStyle" (click)="onTabSelect('risk_alerts')">Risk Alerts</div>
+  <div class="tab-ongoing" [ngStyle]="ongoingStyle" (click)="onTabSelect('ongoing')">Ongoing</div>
+  <div class="tab-incident">
+    <div class="button-incident" (click)="onAddIncidentSelect()">
+      Incident
+    </div>
+  </div>
+</div>
+
+<div [ngSwitch]="tabSwitch">
+  <app-alert-list *ngSwitchCase="'risk_alerts'" ></app-alert-list>
+  <app-ongoing-list *ngSwitchCase="'ongoing'" ></app-ongoing-list>
+</div>
+

@@ -1,0 +1,18 @@
+<div  *ngFor="let riskAlert of riskAlerts | async">
+
+  <div class="alert-item" *ngIf="riskAlert.type === 'section'">
+    <app-alert-section-item
+      [sectionRiskAlert]="riskAlert"
+      [alertSelected]="alertSelected(riskAlert.$key)"
+      (click)="onRiskAlertSelect(riskAlert.$key, riskAlert.lat, riskAlert.lng, riskAlert.zoom)"
+    ></app-alert-section-item>
+  </div>
+
+  <div class="alert-item" *ngIf="riskAlert.type === 'incident'">
+    <app-alert-incident-item
+      [incidentRiskAlert]="riskAlert"
+      [alertSelected]="alertSelected(riskAlert.$key)"
+      (click)="onRiskAlertSelect(riskAlert.$key, riskAlert.lat, riskAlert.lng, riskAlert.zoom)"
+    ></app-alert-incident-item>
+  </div>
+</div>

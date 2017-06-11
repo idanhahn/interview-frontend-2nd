@@ -1,0 +1,25 @@
+<div class="ongoing-container">
+  <div class="ongoing-icon">
+    <img class="ongoing-icon-img" src="./assets/images/{{sectionOngoing.icon}}.png">
+    <div class="layer text-style-1" [ngStyle]="{'color': sectionOngoing.numberColor}">{{sectionOngoing.number}}</div>
+  </div>
+  <div class="ongoing-body">
+    <div class="ongoing-body-row-1">
+      <span class="body-title">{{sectionOngoing.title}}</span>
+      <span class="body-subtitle">{{sectionOngoing.subtitle}}</span>
+    </div>
+    <div class="ongoing-body-row-2">
+      <span class="ongoing-danger label label-danger">{{sectionOngoing.riskLevel}}</span>
+      <span class="plan-warning">
+        <img src="./assets/images/icon-plan-prevent-sign-{{(sectionOngoing.actionWarningToggle == 'TRUE') ? 'on' : 'off'}}.png">
+      </span>
+      <span class="plan-police">
+        <img src="./assets/images/icon-plan-prevent-police-{{(sectionOngoing.actionPoliceToggle == 'TRUE') ? 'on' : 'off'}}.png">
+      </span>
+    </div>
+  </div>
+  <div *ngIf="ongoingSelected == true" class="ongoing-sidebar">
+    <div class="icon-arrow-right Arrow-right--simple-line-icons"></div>
+  </div>
+</div>
+<hr>
